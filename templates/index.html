@@ -11,7 +11,7 @@
 <body style="text-align:center; font-family: 'Times New Roman', Times, serif; font-size: 14pt">
 <script type="text/javascript">
     $(document).ready(function() {
-        var socket = io.connect("http://localhost:5000");
+        var socket = io.connect("https://c4c-message-board.herokuapp.com/");
         socket.on('connect', function() {
             socket.send("User connected!");
         });

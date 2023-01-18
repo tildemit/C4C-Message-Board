@@ -1,9 +1,10 @@
+import os
 from flask import Flask, render_template
 from flask_socketio import SocketIO, send
 
 app = Flask(__name__)
 
-app.secret_key = 'secret!123'
+app.secret_key = os.environ.get('SECRET')
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 @socketio.on('message')
@@ -18,4 +19,4 @@ def index():
 
 
 if __name__ == "__main__":
-        socketio.run(app, host="localhost")
+        app.run()
