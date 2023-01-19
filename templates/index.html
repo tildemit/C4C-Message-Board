@@ -8,32 +8,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.min.js"></script>
 </head>
 
-<body style="text-align:center; font-family: 'Times New Roman', Times, serif; font-size: 14pt">
+<body style="text-align:center; font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 14pt; background-color:#2F3C7E; color:#FBEAEB">
+<h1 style="text-align:left">C4C Message Board</h1>
+<h2 style="text-align:left">By Amit Chandra</h2>
+
+<input type="text" id="username" placeholder="Username" required>
+<input type="text" id="message" placeholder="Message" required>
+<button id="sendBtn">Send</button>
+
 <script type="text/javascript">
     $(document).ready(function() {
         var socket = io.connect("https://c4c-message-board.herokuapp.com/");
-        socket.on('connect', function() {
-            socket.send("User connected!");
-        });
 
         socket.on('message', function(data) {
-            $('#messages').append($('<p>').text(data));
+            $('#messages').prepend($('<p>').text(data));
         });
 
         $('#sendBtn').on('click', function () {
-            if ($('#username') && $('#message').val() && $('#message').val().length <= 128) {
+            if ($('#username').val() && $('#message').val() && $('#message').val().length <= 128) {
                 socket.send($('#username').val() + ': ' + $('#message').val());
                 $('#message').val('');
             }
         });
     });
 </script>
-<div id="messages" style="margin: 0 auto; width: 60%; text-align: center; min-height: 300px">
+<div id="messages" style="margin: 0 auto; width: 60%; text-align: top; min-height: 300px">
 </div>
-
-<input type="text" id="username" placeholder="Username" required>
-<input type="text" id="message" placeholder="Message" required>
-<button id="sendBtn">Send</button>
 
 </body>
 </html>
