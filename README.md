@@ -17,5 +17,4 @@ Whenever a new message is posted, it appears above the previous message sent, pu
 If users from different computers have joined the website, a message sent from one computer will also be displayed on the other computers' screens. The message board is not instanced according to a specific user, but a shared space for users across different machines. This could be implemented easily thanks to Heroku's service.
   
 ## How To Start The Application
-Simply click on the link below!
-https://c4c-message-board.herokuapp.com/
+Simply click on the link! https://c4c-message-board.herokuapp.com/
